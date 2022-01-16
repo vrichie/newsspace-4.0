@@ -6,12 +6,8 @@ import { useState } from 'react'
 import style from '../styles/Entertainment_home.module.css'
 import Mobile from '../styles/Mobile_home.module.css'
 
-const api_url=Config.IP_ADDRESS+"projects/api/src/include/category/home/?cat=";
-
-const api_mobile_url=Config.IP_ADDRESS+"projects/api/src/include/category/mobilehome/?cat=";
-
-
-
+const api_url=Config.IP_ADDRESS+"src/include/category/home/?cat=";
+const api_mobile_url=Config.IP_ADDRESS+"src/include/category/mobilehome/?cat=";
 const type="Entertainment";
 
 export default function Entertainment_home() {
@@ -40,14 +36,10 @@ useEffect(() => {
     get_data();
 }, []);
 
-    // console.log(post);
     let end=3;
 
     const first=post.slice(0,end);
     const second=post.slice(end,end+post.length);
-    // console.log(first);
-    // console.log(second);
-    // console.log(post);
 
 
     let end_2=1;

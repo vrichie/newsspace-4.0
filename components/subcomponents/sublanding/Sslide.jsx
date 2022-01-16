@@ -19,7 +19,7 @@ export default function Sslide() {
         let len=base.length-1;
         let key=base[len].toLowerCase();
         setPage(key);        
-const url=Config.IP_ADDRESS+"projects/api/src/include/category/sub/?cat="+key;
+const url=Config.IP_ADDRESS+"src/include/category/sub/?cat="+key;
 // console.log(url);
 
         fetch(url).then(res=>res.json()).then(data=>{

@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {Redirect} from 'react-router-dom';
 import Config from '../../config/config.json'
-const api_url=Config.IP_ADDRESS+"projects/api/src/include/category/search/?";
+const api_url=Config.IP_ADDRESS+"src/include/category/search/?";
 export default function Searchbar() {
     const [post,setPost]=useState([]);
     const [search,setSearch]=useState(false);

@@ -32,7 +32,6 @@ export default function News() {
 
             <Post_wrapper />
 
-            <Post_wrapper />
         
         
         

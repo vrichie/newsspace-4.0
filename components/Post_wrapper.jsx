@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 
 
-const api_url=Config.IP_ADDRESS+"projects/api/src/include/category/post_wrapper/?cat=";
+const api_url=Config.IP_ADDRESS+"src/include/category/post_wrapper/?cat=";
 
 export default function Post_wrapper() {
     const [post, setPost] = useState([]);

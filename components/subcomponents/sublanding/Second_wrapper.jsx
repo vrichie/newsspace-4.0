@@ -12,7 +12,7 @@ export default function Second_wrapper() {
     const [post, setPost] = useState([]);
 
 
-    const api_url=Config.IP_ADDRESS+"projects/api/src/include/category/2/?cat=";
+    const api_url=Config.IP_ADDRESS+"src/include/category/2/?cat=";
 
 
     const get_data=()=>{

@@ -9,7 +9,7 @@ import Config from "../../../config/config.json"
 
 export default function Trending() {
     const [posts, setPosts] = useState([]);
-    const api_url=Config.IP_ADDRESS+"projects/api/src/include/category/?cat=";
+    const api_url=Config.IP_ADDRESS+"src/include/category/?cat=";
 
     const getCart=()=>{
         let url=window.location.href.split("/")

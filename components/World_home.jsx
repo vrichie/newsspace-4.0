@@ -10,9 +10,9 @@ import { Button } from 'semantic-ui-react'
 import style from '../styles/World_home.module.css'
 
 import Mobile from '../styles/Mobile_home.module.css'
-const api_url=Config.IP_ADDRESS+"projects/api/src/include/category/home/?cat=";
+const api_url=Config.IP_ADDRESS+"src/include/category/home/?cat=";
 
-const api_mobile_url=Config.IP_ADDRESS+"projects/api/src/include/category/mobilehome/?cat=";
+const api_mobile_url=Config.IP_ADDRESS+"src/include/category/mobilehome/?cat=";
 const type="World";
 
 export default function World_home() {

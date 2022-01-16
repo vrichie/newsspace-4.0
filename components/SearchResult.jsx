@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 
 
-const api_url="http://192.168.181.221/projects/api/src/include/category/search/?";
+const api_url=Config.IP_ADDRESS+"src/include/category/search/?";
 
 
 export default function SearchResult() {

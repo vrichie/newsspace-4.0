@@ -19,7 +19,7 @@ export default function Read_section() {
             let len=wif.length;
             let wiff=wif[(len-1)]; 
            
-        const furl = Config.IP_ADDRESS+"projects/api/src/include/posts/?slug="+wiff;
+        const furl = Config.IP_ADDRESS+"src/include/posts/?slug="+wiff;
       
          fetch(furl).then(res=>res.json()).then(data=>{
           

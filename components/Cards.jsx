@@ -5,7 +5,7 @@ import { useEffect,useState } from 'react'
 
 import Image from 'next/image'
 
-const api_url=Config.IP_ADDRESS+"projects/api/src/include/category/cards/";
+const api_url=Config.IP_ADDRESS+"src/include/category/cards/";
 export default function Cards() {
     const [post,setPost]=useState([]);
 
@@ -62,10 +62,10 @@ export default function Cards() {
                             </button>
                             </Link>
                             
-                            <Image
+                            {/* <Image
                             src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+card.pic} 
-                            />
-                            {/* <img src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+card.pic} alt={card.pic} /> */}
+                            /> */}
+                            <img src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+card.pic} alt={card.pic} />
                             <h2>
                                 {card.title}
                             </h2>

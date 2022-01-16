@@ -9,7 +9,7 @@ export default function Suggestion({category}) {
 
  
     const get_article=()=>{
-        const furl = Config.IP_ADDRESS+"projects/api/src/include/category/suggestion/?cat="+"entertainment";
+        const furl = Config.IP_ADDRESS+"src/include/category/suggestion/?cat="+"entertainment";
         console.log(furl);
 
          fetch(furl).then(res=>res.json()).then(data=>{

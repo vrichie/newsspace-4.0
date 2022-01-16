@@ -15,8 +15,8 @@ export default function Slide() {
 
     const get_data=()=>{
         
-const url=Config.IP_ADDRESS+"projects/api/src/include/category/cards/";
-const api_url=Config.IP_ADDRESS+"projects/api/src/include/category/landin/";
+const url=Config.IP_ADDRESS+"src/include/category/cards/";
+const api_url=Config.IP_ADDRESS+"src/include/category/landin/";
         fetch(url).then(res=>res.json()).then(data=>{
  
             setMobilePost(data);

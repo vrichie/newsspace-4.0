@@ -7,7 +7,7 @@ import { Button } from "semantic-ui-react";
 import Config from "../../../config/config.json";
 
 
-const api_url = Config.IP_ADDRESS+"projects/api/src/include/category/main/?cat=";
+const api_url = Config.IP_ADDRESS+"src/include/category/main/?cat=";
 export default function Main_card() {
 
     const [post, setPost] = useState({});

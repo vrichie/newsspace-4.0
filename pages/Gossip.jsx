@@ -30,7 +30,6 @@ export default function gossip() {
 
             <Post_wrapper />
 
-            <Post_wrapper />
         
         
         
