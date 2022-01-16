@@ -48,7 +48,7 @@ export default function Main_card() {
 
     return (
         
-        <Link href={`/article/${post.slug}`} key={}>
+        <Link href={`/article/${post.slug}`} >
             <div id={style.content}>
 
               <div id={style.main_image_content}>
