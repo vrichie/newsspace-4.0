@@ -1,0 +1,398 @@
+#header{
+    width: 100vw;
+    height: 10vh;
+}
+
+
+#nav{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    background-color: #344955;
+    position: relative;
+}
+
+
+
+#logo_wrapper{
+    width:20%;
+    height: 50%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#logo{
+    margin-left: 5%;
+    padding: 5px 0px;
+    color: white;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+    
+}
+#search_wrapper{
+    width:50%;
+    height: 50%;
+    border-radius: 20px;
+    position: relative;
+    background-color: white;
+}
+#searchResults{
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 10;
+    background-color: aliceblue;
+}
+
+#searchResults ul{
+    width: fit-content;
+    height: fit-content;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+#searchResults ul li{
+    width: 47vw;
+    margin: 0.5vh 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 15vh;
+    background-color: white;
+    cursor: pointer;
+    transition: all ease-in-out 350ms;
+    border-radius: 10px;
+
+}
+#searchResults ul li:hover{
+    
+    box-shadow: 5px 5px 10px #344955;
+}
+#searchResults ul li #imageWrapper{
+    width: 30%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    overflow: hidden;
+}
+#searchResults ul li #background_image{
+    width: 100%;
+    position:absolute;
+    height: 100%;
+    filter: blur(5px);
+}
+#searchResults ul li #foreground_image{
+    max-width: 100%;
+    z-index: 3;
+    max-height: 100%;
+}
+#result_details{
+    width: 60%;
+    height: 90%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+#result_details h4{
+    color: #344955;
+}
+#result_details span{
+    background-color: #00000013;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    color: grey;
+    align-items: center;
+    justify-content: space-between;
+}
+#result_details span p{
+    margin: 0;
+    padding: 0 ;
+}
+
+
+
+
+
+
+
+
+
+#form{
+    width:100%;
+    border-radius: 20px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+#searchinput_wrapper{
+    width: 100%;
+    height: 100%;
+    border: none;
+}#searchinput_wrapper i{
+display: none;
+}
+#search_select{
+    width: 28%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1%;
+    height: 80%;
+}
+#icon_nav{
+    width:20%;
+    height: 50%;
+    margin-right: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#links{
+   min-width: 45%;
+    height: 60%;
+    background-color: aquamarine;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    box-shadow: 1px 1px 3px gray;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 1;
+}
+
+#modal{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(51, 65, 85, 0.692);
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#modal_wrapper{
+    width: 70%;
+    height: fit-content;
+    padding: 2vh;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    position: relative;
+}
+#card_wrapper{
+    justify-content: center;
+}
+#clsbttn{
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50%;
+    border:none;
+    background-color: transparent;
+    transition: all ease-in 350ms;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+
+}
+#clsbtt:hover{
+    background-color: red;
+    
+}
+
+
+@media (max-width:500px){
+    #nav{
+        height: 20vh;
+        position: relative;
+        align-items: flex-start;
+    }
+    #logo_wrapper{
+        margin-left: 5%;
+    }
+    #icon_nav{
+        width: 35%;
+        filter: invert(1);
+        justify-content: space-between;
+    }
+    #links{
+        height: 25%;
+        padding: 0 20px;
+    }
+    #links button{
+        padding:8px 10px;
+    }
+
+
+
+
+
+
+    #search_wrapper{
+        position: absolute;
+        bottom: 25%;
+        height: 25%;
+        width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #search_select{
+        margin-right: 3%;
+    }
+    #searchResults{
+        border: 1px solid;
+        display: none;
+    }
+
+    #searchResults ul{
+        width: 95%;
+        display: none;
+   
+    }
+
+}
+
+
+
+
+
+
+
+@media (orientation: landscape) and (max-width:1000px){
+    #nav{
+        height: 35vh;
+        position: relative;
+        align-items: flex-start;
+    }
+    #logo_wrapper{
+        margin-left: 5%;
+    }
+    #icon_nav{
+        width: 35%;
+        filter: invert(1);
+        justify-content: space-between;
+    }
+    #links{
+        height: 25%;
+        padding: 0 20px;
+    }
+    #links button{
+        padding:8px 10px;
+    }
+
+
+
+    #search_wrapper{
+        position: absolute;
+        bottom: 25%;
+        height: 25%;
+        width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #search_select{
+        margin-right: 3%;
+    }
+
+    #searchResults{
+        border: 1px solid;
+        display: none;
+    }
+
+    #searchResults ul{
+        width: 95%;
+        display: none;
+   
+    }
+
+
+}
+
+
+
+@media (max-height:500px){
+    #nav{
+        height: 30vh;
+        position: relative;
+        align-items: flex-start;
+    }
+    #logo_wrapper{
+        margin-left: 5%;
+    }
+    #icon_nav{
+        width: 35%;
+        filter: invert(1);
+        justify-content: space-between;
+    }
+    #links{
+        height: 25%;
+        padding: 0 20px;
+        display: none;
+    }
+    #links button{
+        padding:8px 10px;
+    }
+
+
+    #searchResults{
+        border: 1px solid;
+        display: block;
+    }
+
+    #searchResults ul{
+        width: 95%;
+        display: block;
+   
+    }#searchResults ul li{
+        width: 100%;
+        margin: 0.5vh 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 18vh;
+    
+    }
+    #result_details h4{
+        font-size: 14px;
+    }
+    #result_details span p{
+        font-size: 10px;
+    }
+
+
+
+
+    #search_wrapper{
+        position: absolute;
+        bottom: 25%;
+        height: 25%;
+        width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    #search_select{
+        margin-right: 3%;
+    }
+
+
+}

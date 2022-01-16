@@ -1,0 +1,265 @@
+#footer{
+    width: 100vw;
+    height: 60vh;
+    margin-top: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.footerdiv{
+    width: 15%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+.text{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    position: relative;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}.text::before{
+    content: " ";
+    position: absolute;
+    top: 0;
+    height: 2px;
+    background-color: rgb(16, 24, 21);
+    width: 200%;
+    left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.text p{
+    text-align: center;
+    width: 80%;
+    margin-top: 25px;
+    color: grey;
+    font-size: 16px;
+    line-height: 250%;
+}
+
+
+.textright{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    position: relative;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}.textright::before{
+    content: " ";
+    position: absolute;
+    top: 0;
+    height: 2px;
+    background-color: rgb(16, 24, 21);
+    width: 200%;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.textright ul{
+    width: 100%;
+    margin-top: 15%;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height: 50%;
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-flow: column;
+}
+.textright ul li{
+    width: 80%;
+    font-size: 18px;
+    background-color: rgba(255, 255, 255, 0.404);
+    height: 20%;
+    display: flex;
+    cursor: pointer;
+    transition: all ease-in-out 350ms;
+    padding-left: 2%;
+    align-items: center;
+    border-radius: 0 10px 10px 0;
+}
+.textright ul li:hover{
+    transform: translateX(10%);
+    background-color: rgba(255, 255, 255, 0.404);
+
+}
+.textright ul p{
+    margin-left: 5%;
+    color: grey;
+}
+
+#middle_div{
+    margin-top: 0vh;
+    width: 30%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-flow: column;
+    position: relative;
+}
+
+
+
+
+#logo{
+    height: fit-content;
+    text-align: center;
+    margin-top:10px;
+}#logo h1{
+    font-size: 3em;
+    letter-spacing: 2px;
+    border-top: 1px solid ;
+    border-bottom: 1px solid;
+}#logo p{
+    font-size: .8em;
+    letter-spacing: 2px;
+    color: grey;
+
+}
+
+#social{
+    width: 60%;
+    height: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 5%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#social span{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid grey;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+#subscription_form{
+    width: 80%;
+    display:flex ;
+    align-items: center;
+    justify-content: center;
+}
+#subscription_form_wrapper{
+    width: 80%;
+
+}
+#by{
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+
+}
+
+
+
+
+
+@media (max-width:500px){
+    #footer{
+        flex-direction: column-reverse;
+        height: fit-content;
+    }
+    .footerdiv{
+        width: 90%;
+        justify-content: space-evenly;
+    }
+    .text {
+        padding: 0;
+    }
+    #middle_div{
+        width: 90%;
+    }
+    #social{
+        width: 100%;
+        margin: 3vh 0;
+    }
+    #subscription_form{
+        width: 100%;
+        margin: 1vh 0 5vh 0;
+    }
+    #by h6{
+        font-size: 12px;
+    }
+
+
+
+
+    .text::before{
+        display: none;
+    }
+
+
+    .footerdiv:nth-child(3){
+
+        display: none;
+    }
+    .footerdiv:nth-child(1) p{
+        font-size: 10px;
+        margin: 2vh 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+@media (orientation: landscape) and (max-width:1000px){
+    #footer{
+        flex-direction: column-reverse;
+        height: fit-content;
+    }
+    .footerdiv{
+        width: 90%;
+        justify-content: space-evenly;
+    }
+    .text {
+        padding: 0;
+    }
+    #middle_div{
+        width: 90%;
+    }
+    #social{
+        width: 100%;
+        margin: 3vh 0;
+    }
+    #subscription_form{
+        width: 100%;
+        margin: 1vh 0 5vh 0;
+    }
+    #by h6{
+        font-size: 12px;
+    }
+
+
+
+
+    .text::before{
+        display: none;
+    }
+
+
+    .footerdiv:nth-child(3){
+
+        display: none;
+    }
+    .footerdiv:nth-child(1) p{
+        font-size: 10px;
+        margin: 2vh 0;
+    }
+}

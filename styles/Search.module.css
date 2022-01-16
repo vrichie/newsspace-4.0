@@ -1,0 +1,50 @@
+#search_wrapper{
+    width: 100%;
+    height:auto;
+    margin-top: 10vh;
+    display: flex;
+}
+
+#suggested{
+    width: 30%;
+    height: 60vh;
+    border: 1px solid ;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#suggested ul{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+#suggested ul li{
+    border-bottom: 1px solid;
+    padding: 5px 0;
+    cursor: pointer;
+    transition: all ease-in 350ms;
+}
+#suggested ul li:hover{
+    text-decoration: underline;
+}
+
+#results{
+    height: auto;
+    width: 70%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+#results h1{
+    width: 100%;
+    text-align: center;
+}
+
+.result_card{
+    width: 50%;
+}
