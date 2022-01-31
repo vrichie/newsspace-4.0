@@ -1,13 +1,9 @@
 import style from '../../../styles/Slide.module.css'
 import Image from 'next/image'
-import Head from 'next/head'
 import Link from 'next/link';
-    import axios from "axios";
-    import Slider from'react-slick'
     import Config from '../../../config/config.json'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Carousel } from 'react-responsive-carousel';
 export default function Sslide() {
     const [post,setPost]=useState([]);
     const [page,setPage]=useState([]);
@@ -30,7 +26,7 @@ const url=Config.IP_ADDRESS+"category/"+key+"/4";
        
     }
 
-    useEffect(async()=>{
+    useEffect(()=>{
         get_data();
     },[]);
 
@@ -66,8 +62,16 @@ const url=Config.IP_ADDRESS+"category/"+key+"/4";
 
         <div id={style.mobile_wrapper}>
 
+                 {   
+                        
+                mobilePost.length==0 ?(
+                    <div id={style.loader_wrapper}>
 
-            {
+                    <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+       
+        
+               </div>
+                        ):
                 mobilePost.map((posts,index)=>(
                     <Link href={`./article/${posts.slug}`} key={index}>
                     

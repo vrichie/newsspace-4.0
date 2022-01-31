@@ -26,7 +26,7 @@ export default function Trending() {
 
     }
 
-    useEffect(async()=>{
+    useEffect(()=>{
         getCart();
 
 

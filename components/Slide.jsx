@@ -11,43 +11,52 @@ import { Carousel } from 'react-responsive-carousel';
 export default function Slide() {
     const [post,setPost]=useState([]);
 
-    const [mobilePost,setMobilePost]=useState([]);
     const [mobilePost_w,setMobilePost_w]=useState([]);
     const [mobilePost_e,setMobilePost_e]=useState([]);
     const [mobilePost_g,setMobilePost_g]=useState([]);
     const [mobilePost_n,setMobilePost_n]=useState([]);
 
+    const [mobilePost_w_loader,setMobilePost_w_loader]=useState(false);
+    const [mobilePost_e_loader,setMobilePost_e_loader]=useState(false);
+    const [mobilePost_g_loader,setMobilePost_g_loader]=useState(false);
+    const [mobilePost_n_loader,setMobilePost_n_loader]=useState(false);
+
     const get_data=()=>{
-        
-const Wurl=Config.IP_ADDRESS+"category/world/1";
-const Nurl=Config.IP_ADDRESS+"category/news/1";
-const Gurl=Config.IP_ADDRESS+"category/gossip/1";
-const Eurl=Config.IP_ADDRESS+"category/entertainment/1";
-const api_url=Config.IP_ADDRESS+"category/world/1";
-console.log(api_url);
+            
+    const Wurl=Config.IP_ADDRESS+"category/world/1";
+    const Nurl=Config.IP_ADDRESS+"category/news/1";
+    const Gurl=Config.IP_ADDRESS+"category/gossip/1";
+    const Eurl=Config.IP_ADDRESS+"category/entertainment/1";
+    const api_url=Config.IP_ADDRESS+"category/world/1";
+    // console.log(api_url);
 
         //world
         fetch(Wurl).then(res=>res.json()).then(data=>{
  
             setMobilePost_w(data[0]);
+            setMobilePost_w_loader(true);
+
         }).catch(e=>console.log(e))
 
         //news
         fetch(Nurl).then(res=>res.json()).then(data=>{
  
             setMobilePost_n(data[0]);
+            setMobilePost_n_loader(true);
         }).catch(e=>console.log(e))
 
         //gossip
         fetch(Gurl).then(res=>res.json()).then(data=>{
  
             setMobilePost_g(data[0]);
+            setMobilePost_g_loader(true);
         }).catch(e=>console.log(e))
 
         //entertainment
         fetch(Eurl).then(res=>res.json()).then(data=>{
  
             setMobilePost_e(data[0]);
+            setMobilePost_e_loader(true);
         }).catch(e=>console.log(e))
 
         fetch(api_url).then(res=>res.json()).then(data=>{
@@ -56,7 +65,7 @@ console.log(api_url);
         }).catch(e=>console.log(e))
     }
 
-    useEffect(async()=>{
+    useEffect(()=>{
         get_data();
     },[]);
 
@@ -175,6 +184,18 @@ console.log(api_url);
 
 
             {
+                mobilePost_e==false?(
+                    <div id={style.loader_wrapper}>
+
+                    <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+       
+        
+               </div>
+                ):(
+
+                
+
+
                     <Link href={`./article/${mobilePost_e.slug}`} >
                     
                     
@@ -213,12 +234,24 @@ console.log(api_url);
                     
                     
                     
-                    </Link>
+                    </Link>)
+                }
+
                 
-            }
+            
 
 
             {
+                mobilePost_g==false?(
+                    <div id={style.loader_wrapper}>
+
+                    <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+       
+        
+               </div>
+                ):(
+
+                
                     <Link href={`./article/${mobilePost_g.slug}`} >
                     
                     
@@ -258,10 +291,28 @@ console.log(api_url);
                     
                     
                     </Link>
+                )
                 
             }
 
+
+
+
+
+
+
+
             {
+                mobilePost_w==false?(
+                    <div id={style.loader_wrapper}>
+
+                    <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+       
+        
+               </div>
+                ):(
+
+                
                     <Link href={`./article/${mobilePost_w.slug}`} >
                     
                     
@@ -301,11 +352,24 @@ console.log(api_url);
                     
                     
                     </Link>
+
+
+                )
                 
             }
 
 
-{
+            {
+                mobilePost_n==false?(
+                    <div id={style.loader_wrapper}>
+
+                    <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+       
+        
+               </div>
+                ):(
+
+                
                     <Link href={`./article/${mobilePost_n.slug}`} >
                     
                     
@@ -345,6 +409,9 @@ console.log(api_url);
                     
                     
                     </Link>
+
+
+                )
                 
             }
 

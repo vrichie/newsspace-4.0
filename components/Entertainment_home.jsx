@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useState } from 'react'
 import style from '../styles/Entertainment_home.module.css'
 import Mobile from '../styles/Mobile_home.module.css'
-
+import Image from 'next/image';
 const api_url=Config.IP_ADDRESS+"category/entertainment/7";
 const api_mobile_url=Config.IP_ADDRESS+"category/entertainment/6";
 const type="Entertainment";
@@ -20,19 +20,18 @@ export default function Entertainment_home() {
     const get_data=()=>{
   
         fetch(base_url).then(res=>res.json()).then(data=>{
-            // console.log(data);
+            console.log(data);
             setPost(data);
 
         }).catch((e)=>console.log(e));
         fetch(base_mobile_url).then(res=>res.json()).then(data=>{
-            // console.log(data);
             setMpost(data);
 
         }).catch((e)=>console.log(e));
     }
     
 
-useEffect(async() => {
+useEffect(() => {
     get_data();
 }, []);
 
@@ -64,17 +63,28 @@ useEffect(async() => {
                      {type}
                 </div>
 
+
+
+ 
             <div className={style.trending}>
 
                 <h2>
                     Check out whats poppin
                 </h2>
 
+                {   
+                        
+                        second.length==0 ?(
+                            <div id={style.loader_wrapper}>
 
-                {
+                            <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+               
+                
+                       </div>
+                        ):
                     second.map((post,index)=>(
 
-                        <Link href={`./article/${post.slug}`} key={index} passHref> 
+                        <Link href={`./article/${post.slug}`} key={index}> 
                         
                         
                             <span className={style.trend_list}>
@@ -100,11 +110,19 @@ useEffect(async() => {
             </div>
 
             <div className={style.main_item}>
+            {   
+                        
+                        main_post.length==0 ?(
+                            <div id={style.loader_wrapper}>
 
-                {
+                            <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+               
+                
+                       </div>
+                        ):
                     main_post.map((post,index)=>(
 
-                        <Link href={`./article/${post.slug}`} key={index} passHref>
+                        <Link href={`./articles/${post.slug}`} key={index}>
 
                                                                 
                             <div className={style.main_item_card}>
@@ -113,7 +131,7 @@ useEffect(async() => {
                                 <img src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
 
                                 <div className={style.main_card_details}>
-
+                                
                                     <h1>
                                         {post.title}
                                     </h1>
@@ -131,7 +149,7 @@ useEffect(async() => {
                                         {post.date}
                                     </p>
 
-                                   
+                                     
                                 
                                     </div>
 
@@ -148,8 +166,16 @@ useEffect(async() => {
 
 
         
+                {   
+                        
+                    twin_post.length==0 ?(
+                        <div id={style.loader_wrapper}>
 
-{
+                        <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+           
+            
+                   </div>
+                        ):
                     twin_post.map((post,index)=>(
                         
 
@@ -162,7 +188,7 @@ useEffect(async() => {
                                 <div className={style.main_card_detail}>
                                 
                                     <h1>
-                                       {post.title}                                                                                                 
+                                       {post.title}
                                     </h1>
 
                                 
@@ -185,6 +211,7 @@ useEffect(async() => {
 
 
 
+
                
 
 
@@ -193,13 +220,20 @@ useEffect(async() => {
             </div>
 
 
-                <div id={Mobile.mobile}>
+            <div id={Mobile.mobile}>
                     <ul>
+                    {   
+                        
+                        mpost.length==0 ?(
+                            <div id={style.loader_wrapper}>
 
-
-                        {
+                            <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+               
+                
+                       </div>
+                        ):
                             mpost.map((post,key)=>(
-                                <Link href={`./article/${post.slug}`} key={key} passHref>
+                                <Link href={`./article/${post.slug}`} key={key}>
                                 
                                 
                                     <li>
@@ -231,8 +265,6 @@ useEffect(async() => {
                     </ul>
                    
                 </div>
-
-
             
         </div>
     )

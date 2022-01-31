@@ -3,7 +3,7 @@ import Config from '../config/config.json'
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useState } from 'react'
-
+import Image from 'next/image';
 
 import { Button } from 'semantic-ui-react'
 
@@ -36,7 +36,7 @@ export default function World_home() {
     }
     
 
-useEffect(async() => {
+useEffect(() => {
     get_data();
 }, []);
 
@@ -61,14 +61,25 @@ useEffect(async() => {
                      {type}
                 </div>
 
+
+
+ 
             <div className={style.trending}>
 
                 <h2>
                     Check out whats poppin
                 </h2>
 
+                {   
+                        
+                        second.length==0 ?(
+                            <div id={style.loader_wrapper}>
 
-                {
+                            <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+               
+                
+                       </div>
+                        ):
                     second.map((post,index)=>(
 
                         <Link href={`./article/${post.slug}`} key={index}> 
@@ -97,8 +108,16 @@ useEffect(async() => {
             </div>
 
             <div className={style.main_item}>
+            {   
+                        
+                        main_post.length==0 ?(
+                            <div id={style.loader_wrapper}>
 
-                {
+                            <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+               
+                
+                       </div>
+                        ):
                     main_post.map((post,index)=>(
 
                         <Link href={`./articles/${post.slug}`} key={index}>
@@ -128,7 +147,8 @@ useEffect(async() => {
                                         {post.date}
                                     </p>
 
-        
+                                     
+                                
                                     </div>
 
                                 </div>
@@ -144,8 +164,16 @@ useEffect(async() => {
 
 
         
+                {   
+                        
+                    twin_post.length==0 ?(
+                        <div id={style.loader_wrapper}>
 
-                {
+                        <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+           
+            
+                   </div>
+                        ):
                     twin_post.map((post,index)=>(
                         
 
@@ -181,6 +209,7 @@ useEffect(async() => {
 
 
 
+
                
 
 
@@ -191,9 +220,16 @@ useEffect(async() => {
 
             <div id={Mobile.mobile}>
                     <ul>
+                    {   
+                        
+                        mpost.length==0 ?(
+                            <div id={style.loader_wrapper}>
 
-
-                        {
+                            <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+               
+                
+                       </div>
+                        ):
                             mpost.map((post,key)=>(
                                 <Link href={`./article/${post.slug}`} key={key}>
                                 

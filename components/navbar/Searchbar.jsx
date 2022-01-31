@@ -47,7 +47,7 @@ export default function Searchbar() {
         }).catch((e)=>console.log(e));
     }
 
-    useEffect(async () => {
+    useEffect( () => {
 
 
         console.log("reload");

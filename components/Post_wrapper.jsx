@@ -33,7 +33,7 @@ const api_url=Config.IP_ADDRESS+"category/"+(base.toLocaleLowerCase())+"/6";
     }
 
 
-    useEffect(async()=>{
+    useEffect(()=>{
         get_data();
     },[]);
 
@@ -55,7 +55,12 @@ const api_url=Config.IP_ADDRESS+"category/"+(base.toLocaleLowerCase())+"/6";
             <div id={style.suggestions}>
                 <ul>
 
-                    {
+                {   
+                        
+                        second.length==0 ?(
+                        <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                    
+                        ):
                         second.map((posts,key)=>(
 
                             <Link href={`./article/${posts.slug}`} key={key}>       
@@ -90,7 +95,12 @@ const api_url=Config.IP_ADDRESS+"category/"+(base.toLocaleLowerCase())+"/6";
             <div id={style.posts}>
 
 
-                {
+            {   
+                        
+                        first.length==0 ?(
+                        <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                    
+                        ):
                     first.map((posts,key)=>(
 
                         <Link href={`./article/${posts.slug}`} key={key}>
@@ -152,13 +162,22 @@ const api_url=Config.IP_ADDRESS+"category/"+(base.toLocaleLowerCase())+"/6";
                 </h1>
                     <ul>
 
+                    {   
+                        
+                        post.length==0 ?( 
+                            <div id={style.loader_wrapper}>
 
-                        {
-                            post.map((post,key)=>(
-                                <Link href={`./article/${post.slug}`} key={key}>
+                                 <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                    
+                     
+                            </div>
+
+                           ): 
+                            post.map((post,key)=>( 
+                                 <Link href={`./article/${post.slug}`} key={key}>
+                                 
                                 
-                                
-                                    <li>
+                                     <li>
                                         <img src={Config.POSTIMAGE_BASEURL+post.pic} alt="" />
                                         <span>
                                             <h3>
@@ -174,15 +193,15 @@ const api_url=Config.IP_ADDRESS+"category/"+(base.toLocaleLowerCase())+"/6";
                                                         
                                         </span>
     
-                                    </li>
+                                    </li> 
                                 
                                 
                                 
-                                </Link>
+                                 </Link>
 
 
                             ))
-                        }
+                        } 
 
                     </ul>
                    

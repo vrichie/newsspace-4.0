@@ -111,6 +111,17 @@
   height: 1em;
   margin-left: 0.5rem;
 }
+#loader_wrapper{
+  width: 100vw;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#loader{
+  margin: auto;
+}
+
 
 @media (max-width: 500px) {
   .grid {

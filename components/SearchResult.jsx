@@ -36,7 +36,7 @@ export default function SearchResult() {
             }
         }).catch((e)=>console.log(e));
     }
-    useEffect(async()=>{
+    useEffect(()=>{
         let query=get_url();
         let url=api_url+query;
  

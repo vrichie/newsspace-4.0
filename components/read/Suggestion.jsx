@@ -3,18 +3,20 @@ import style from '../../styles/Read_section.module.css'
 import Config from '../../config/config.json'
 import Link from 'next/link'
  import Image from 'next/image'
+import image from 'next/image'
 export default function Suggestion({category}) {
-    const [post,setPost]=useState({});
+    // const [load,setLoad]=useState(false);
     const [suggestion,setSuggestion]=useState([]);
 
  
     const get_article=()=>{
         const furl = Config.IP_ADDRESS+"category/entertainment/10";
-        console.log(furl);
+        // console.log(furl);
 
          fetch(furl).then(res=>res.json()).then(data=>{
-                 console.log(data);
+                //  console.log(data);
                  setSuggestion(data);
+                 
          });
 
 
@@ -23,17 +25,24 @@ export default function Suggestion({category}) {
 
 
 
-    useEffect(async()=>{
+    useEffect(()=>{
             get_article();
 
     },[]);
  
     
-console.log(category);
+// console.log(category);
 
 // console.log(Config.POSTIMAGE_BASEURL+post.pic);
  
 // console.log(wiff);
+// if(suggestion.length==0){
+//     console.log("loading")
+// }else{
+//     console.log("loaded")
+// }
+
+// console.log(suggestion.length);
 
 
 
@@ -45,7 +54,9 @@ console.log(category);
         <ul> 
  
 
-                    {
+                    {suggestion.length==0?(
+                        <Image src={"/loader.gif"} alt="loading" width={200} height={200} />
+                    ):
                         suggestion.map((post,key)=>(
                             
                             <Link href={`${post.slug}`} key={key} passHref>

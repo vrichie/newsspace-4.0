@@ -25,7 +25,7 @@ export default function Second_wrapper() {
 
     }
 
-    useEffect(async()=>{
+    useEffect(()=>{
 
         get_data();
 

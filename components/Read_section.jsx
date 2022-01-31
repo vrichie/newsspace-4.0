@@ -23,7 +23,7 @@ export default function Read_section() {
         // const furl = Config.IP_ADDRESS+"include/posts/?slug="+wiff;
         const furl=Config.IP_ADDRESS+"article/"+wiff;
          fetch(furl).then(res=>res.json()).then(data=>{
-
+                console.log(data[0].id);
                  setPost(data[0]);
          });
           
@@ -34,7 +34,7 @@ export default function Read_section() {
 
 
 
-    useEffect(async()=>{
+    useEffect(()=>{
         
             get_article();
 
@@ -66,6 +66,13 @@ export default function Read_section() {
 
             </div>
             <div id={style.real_content}>
+
+            {
+                post.id==null?(
+                    <Image src={"/loader.gif"} alt="loading" width={200} height={200} />
+                    
+                ):(
+
                 <div id={style.post_wrapper}>
                     <h1 id={style.title_h1}>
                         {post.title}
@@ -130,6 +137,11 @@ export default function Read_section() {
 
 
                 </div>
+
+                )
+            }
+
+
 
             <Suggestion />
 
