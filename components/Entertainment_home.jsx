@@ -32,7 +32,7 @@ export default function Entertainment_home() {
     }
     
 
-useEffect(() => {
+useEffect(async() => {
     get_data();
 }, []);
 

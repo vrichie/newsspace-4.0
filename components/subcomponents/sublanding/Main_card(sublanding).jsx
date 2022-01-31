@@ -39,7 +39,7 @@ export default function Main_card() {
       });
   };
 
-  useEffect(() => {
+  useEffect(async() => {
     getPost();
   }, []);
 

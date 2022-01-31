@@ -36,7 +36,7 @@ export default function World_home() {
     }
     
 
-useEffect(() => {
+useEffect(async() => {
     get_data();
 }, []);
 

@@ -33,7 +33,7 @@ const api_url=Config.IP_ADDRESS+"category/"+(base.toLocaleLowerCase())+"/6";
     }
 
 
-    useEffect(()=>{
+    useEffect(async()=>{
         get_data();
     },[]);
 

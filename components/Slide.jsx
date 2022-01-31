@@ -56,7 +56,7 @@ console.log(api_url);
         }).catch(e=>console.log(e))
     }
 
-    useEffect(()=>{
+    useEffect(async()=>{
         get_data();
     },[]);
 

@@ -31,7 +31,7 @@ export default function Gossip_home() {
     }
     
 
-useEffect(() => {
+useEffect(async() => {
     get_data();
 }, []);
 

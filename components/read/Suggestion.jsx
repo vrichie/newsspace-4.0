@@ -23,7 +23,7 @@ export default function Suggestion({category}) {
 
 
 
-    useEffect(()=>{
+    useEffect(async()=>{
             get_article();
 
     },[]);

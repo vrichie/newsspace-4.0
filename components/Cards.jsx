@@ -43,8 +43,8 @@ export default function Cards() {
         }).catch((e)=>console.log(e));
     }
 
-    useEffect(() => {
-        get_cards();
+    useEffect(async () => {
+      get_cards();
     }, []);
 
 

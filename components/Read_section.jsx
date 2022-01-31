@@ -34,7 +34,7 @@ export default function Read_section() {
 
 
 
-    useEffect(()=>{
+    useEffect(async()=>{
         
             get_article();
 

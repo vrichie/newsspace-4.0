@@ -30,7 +30,7 @@ const url=Config.IP_ADDRESS+"category/"+key+"/4";
        
     }
 
-    useEffect(()=>{
+    useEffect(async()=>{
         get_data();
     },[]);
 
