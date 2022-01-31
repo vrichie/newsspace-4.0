@@ -10,18 +10,17 @@ import { Button } from 'semantic-ui-react'
 import style from '../styles/World_home.module.css'
 
 import Mobile from '../styles/Mobile_home.module.css'
-const api_url=Config.IP_ADDRESS+"src/include/category/home/?cat=";
-
-const api_mobile_url=Config.IP_ADDRESS+"src/include/category/mobilehome/?cat=";
-const type="World";
+const api_url=Config.IP_ADDRESS+"category/world/7";
+const api_mobile_url=Config.IP_ADDRESS+"category/world/6";
+const type="Entertainment";
 
 export default function World_home() {
     const [post, setPost] = useState([]);
     const [mpost, setMpost] = useState([]);
     
-      const base_url=api_url+type.toLowerCase();
+      const base_url=api_url;
 
-      const base_mobile_url=api_mobile_url+type.toLowerCase();
+      const base_mobile_url=api_mobile_url;
     const get_data=()=>{
   
         fetch(base_url).then(res=>res.json()).then(data=>{
@@ -108,7 +107,7 @@ useEffect(() => {
                             <div className={style.main_item_card}>
 
 
-                                <img src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
+                                <img src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
 
                                 <div className={style.main_card_details}>
                                 
@@ -154,7 +153,7 @@ useEffect(() => {
                         <Link href={`./article/${post.slug}`} key={index}>
                             <div className={style.main_item_cardleft}>
 
-                                <img src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
+                                <img src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
 
                                 <div className={style.main_card_detail}>
                                 
@@ -200,7 +199,7 @@ useEffect(() => {
                                 
                                 
                                     <li>
-                                        <img src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+post.pic} alt="" />
+                                        <img src={Config.POSTIMAGE_BASEURL+post.pic} alt="" />
                                         <span>
                                             <h3>
                                                 {post.title} 

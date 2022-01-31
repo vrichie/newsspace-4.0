@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react';
 
 
 
-const api_url=Config.IP_ADDRESS+"src/include/category/post_wrapper/?cat=";
 
 export default function Post_wrapper() {
     const [post, setPost] = useState([]);
@@ -18,12 +17,11 @@ export default function Post_wrapper() {
         let url=window.location.href.split("/");
         let len=url.length;
         let base=url[len-1];
-        const Base_url=api_url+(base.toLocaleLowerCase());
+
+const api_url=Config.IP_ADDRESS+"category/"+(base.toLocaleLowerCase())+"/6";
 
 
-        console.log(Base_url);
-
-        fetch(Base_url).then(res=>res.json()).then(data=>{
+        fetch(api_url).then(res=>res.json()).then(data=>{
     
             setPost(data);
         }).catch(e=>console.log(e));
@@ -62,7 +60,7 @@ export default function Post_wrapper() {
 
                             <Link href={`./article/${posts.slug}`} key={key}>       
                                 <li>
-                                    <img src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+posts.pic} alt={posts.pic} height="80%" width="40%" />
+                                    <img src={Config.POSTIMAGE_BASEURL+posts.pic} alt={posts.pic} height="80%" width="40%" />
                                     <span>
                                         <p>
                                             {posts.title}
@@ -99,7 +97,7 @@ export default function Post_wrapper() {
 
                                     
                             <div id={style.Post_wrapper_card}>
-                                <img src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+posts.pic} alt={posts.pic} />
+                                <img src={Config.POSTIMAGE_BASEURL+posts.pic} alt={posts.pic} />
 
                                 <div id={style.Post_wrapper_card_details}>
                                 
@@ -161,7 +159,7 @@ export default function Post_wrapper() {
                                 
                                 
                                     <li>
-                                        <img src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+post.pic} alt="" />
+                                        <img src={Config.POSTIMAGE_BASEURL+post.pic} alt="" />
                                         <span>
                                             <h3>
                                                 {post.title} 

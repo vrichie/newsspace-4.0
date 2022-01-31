@@ -170,6 +170,7 @@
     #footer{
         flex-direction: column-reverse;
         height: fit-content;
+        margin-top: 50vh;
     }
     .footerdiv{
         width: 90%;
@@ -223,6 +224,7 @@
     #footer{
         flex-direction: column-reverse;
         height: fit-content;
+        margin-top: 200vh;
     }
     .footerdiv{
         width: 90%;

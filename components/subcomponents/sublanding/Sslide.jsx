@@ -19,7 +19,7 @@ export default function Sslide() {
         let len=base.length-1;
         let key=base[len].toLowerCase();
         setPage(key);        
-const url=Config.IP_ADDRESS+"src/include/category/sub/?cat="+key;
+const url=Config.IP_ADDRESS+"category/"+key+"/4";
 // console.log(url);
 
         fetch(url).then(res=>res.json()).then(data=>{
@@ -78,8 +78,8 @@ const url=Config.IP_ADDRESS+"src/include/category/sub/?cat="+key;
 
                                     
 
-                                    <img id={style.fore} src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+posts.pic} alt="" />
-                                    <img id={style.back} src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+posts.pic} alt="" />
+                                    <img id={style.fore} src={Config.POSTIMAGE_BASEURL+posts.pic} alt="" />
+                                    <img id={style.back} src={Config.POSTIMAGE_BASEURL+posts.pic} alt="" />
 
                                     <div id={style.details}>
                                         <h5 onLoad={(e)=>{e.style.color="red"}}>

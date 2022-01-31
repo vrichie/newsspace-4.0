@@ -9,7 +9,7 @@ export default function Suggestion({category}) {
 
  
     const get_article=()=>{
-        const furl = Config.IP_ADDRESS+"src/include/category/suggestion/?cat="+"entertainment";
+        const furl = Config.IP_ADDRESS+"category/entertainment/10";
         console.log(furl);
 
          fetch(furl).then(res=>res.json()).then(data=>{
@@ -48,7 +48,7 @@ console.log(category);
                     {
                         suggestion.map((post,key)=>(
                             
-                            <Link href={`../../article/${post.slug}`} key={key} passHref>
+                            <Link href={`${post.slug}`} key={key} passHref>
 
                             <li>
                             <p>
@@ -56,9 +56,9 @@ console.log(category);
                             </p>
                             <span>
               
-                        <img id={style.fore_image} src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
+                        <img id={style.fore_image} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
                            
-                       <img id={style.back_image} src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
+                       <img id={style.back_image} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
                           </span>
                         </li> 
 

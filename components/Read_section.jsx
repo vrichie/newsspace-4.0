@@ -5,6 +5,7 @@ import axios from 'axios'
 import Config from '../config/config.json'
  import Image from 'next/image'
 import Link from 'next/link'
+import Head from 'next/head'
 import Suggestion from './read/Suggestion'
 
 export default function Read_section() {
@@ -19,11 +20,11 @@ export default function Read_section() {
             let len=wif.length;
             let wiff=wif[(len-1)]; 
            
-        const furl = Config.IP_ADDRESS+"src/include/posts/?slug="+wiff;
-      
+        // const furl = Config.IP_ADDRESS+"include/posts/?slug="+wiff;
+        const furl=Config.IP_ADDRESS+"article/"+wiff;
          fetch(furl).then(res=>res.json()).then(data=>{
-          
-                 setPost(data);
+
+                 setPost(data[0]);
          });
           
   
@@ -43,13 +44,19 @@ export default function Read_section() {
 
 
  
-console.log(post.body);
-
 
 
 
     return (
         <div id={style.main_wrapper}>
+      <Head>
+        <title>{post.title}</title>
+        <meta name={post.title} content={post.summary} />
+        <link rel="icon" href="/newsspace_logo.png" />
+      </Head>
+
+
+
             <div id={style.fake_header} className="bg-light">
                 <div id={style.category}>
                     <h1>
@@ -77,8 +84,8 @@ console.log(post.body);
 
                         <div id={style.mm_place}>
                            
-                              <img id={style.mic_background_mm} src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
-                              <img id={style.mic_main_mm} src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
+                              <img id={style.mic_background_mm} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
+                              <img id={style.mic_main_mm} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
 
                         </div>
                             
@@ -89,7 +96,7 @@ console.log(post.body);
                         <div  id={style.writers}>
 
                             <div id={style.editor_pic}>
-                                <img  src={Config.IP_ADDRESS+Config.EDITORSIMAGE_BASEURL+post.profile} alt={post.profile} />
+                                <img  src={Config.EDITORSIMAGE_BASEURL+post.profile} alt={post.profile} />
                                 <div id={style.editor_name}>
                                         {post.username}
                                 </div>

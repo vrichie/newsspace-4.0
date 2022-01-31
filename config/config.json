@@ -1,8 +1,11 @@
 
+
+
+
 {
-    "IP_ADDRESS":"https://richking.xyz/",
-    "POSTIMAGE_BASEURL":"src/assets/post_images/",
-    "EDITORSIMAGE_BASEURL":"src/assets/editors_images/"
+    "IP_ADDRESS":"http://richking.xyz/src/include/",
+    "POSTIMAGE_BASEURL":"http://richking.xyz/src/assets/post_images/",
+    "EDITORSIMAGE_BASEURL":"http://richking.xyz/src/assets/editors_images/"
 
 
 

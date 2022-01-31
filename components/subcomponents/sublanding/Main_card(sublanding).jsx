@@ -7,7 +7,7 @@ import { Button } from "semantic-ui-react";
 import Config from "../../../config/config.json";
 
 
-const api_url = Config.IP_ADDRESS+"src/include/category/main/?cat=";
+const api_url = Config.IP_ADDRESS+"category/";
 export default function Main_card() {
 
     const [post, setPost] = useState({});
@@ -19,7 +19,7 @@ export default function Main_card() {
     let len=url.length;
     let base=url[len-1];
 
-    const baseUrl=api_url+(base.toLocaleLowerCase()); 
+    const baseUrl=api_url+(base.toLocaleLowerCase())+"/1"; 
     console.log(baseUrl);
 
 
@@ -32,7 +32,7 @@ export default function Main_card() {
       .then((data) => {
         console.log(data);
 
-        setPost(data);
+        setPost(data[0]);
       })
       .catch((e) => {
         console.log(e);
@@ -52,9 +52,9 @@ export default function Main_card() {
             <div id={style.content}>
 
               <div id={style.main_image_content}>
-              <img id={style.mic_background} src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
+              <img id={style.mic_background} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
 
-                  <img id={style.mic_main} src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic}  />
+                  <img id={style.mic_main} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic}  />
 
               </div>
 

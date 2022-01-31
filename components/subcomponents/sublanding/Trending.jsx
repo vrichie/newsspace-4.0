@@ -9,18 +9,15 @@ import Config from "../../../config/config.json"
 
 export default function Trending() {
     const [posts, setPosts] = useState([]);
-    const api_url=Config.IP_ADDRESS+"src/include/category/?cat=";
 
     const getCart=()=>{
         let url=window.location.href.split("/")
         let len=url.length;
         let cartegory=url[(len-1)];
-
-        let baseurl=api_url+(cartegory.toLocaleLowerCase());
-        // console.log(baseurl)
+    const api_url=Config.IP_ADDRESS+"category/"+(cartegory.toLocaleLowerCase())+"/6";
 
 
-            fetch(baseurl).then(res=>res.json()).then(data=>{
+            fetch(api_url).then(res=>res.json()).then(data=>{
                 // console.log(data);
                 setPosts(data)
             })
@@ -53,7 +50,7 @@ export default function Trending() {
                 <Link href={`/article/${post.slug}`} key={key}>
                     <li key={key}>
                         
-                        {post.summary}
+                        {post.title}
                     </li>
                 </Link>
 

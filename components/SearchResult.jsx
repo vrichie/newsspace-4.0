@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 
 
-const api_url=Config.IP_ADDRESS+"src/include/category/search/?";
+const api_url=Config.IP_ADDRESS+"search/";
 
 
 export default function SearchResult() {
@@ -13,7 +13,7 @@ export default function SearchResult() {
     const [post,setPost]=useState([]);
     const [search,setSearch]=useState(false);
     const [searchInput,setSearchInput]=useState('');
-    const [category,setCategory]=useState('all');
+    const [category,setCategory]=useState('gossip');
     const [results,setResults]=useState(0);
 
 

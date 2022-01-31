@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import {Redirect} from 'react-router-dom';
 import Config from '../../config/config.json'
-const api_url=Config.IP_ADDRESS+"src/include/category/search/?";
+const api_url=Config.IP_ADDRESS+"search/";
 export default function Searchbar() {
     const [post,setPost]=useState([]);
     const [search,setSearch]=useState(false);
@@ -34,11 +34,15 @@ export default function Searchbar() {
             if(data[0].results===0){
                 setResults(0)
 
-            console.log(data[0].results);
+            // console.log(data);
             setPost([])
             }else{
+
+            // console.log(data);
                 setResults(data[0].results)
             setPost(data);
+            console.log(post);
+            console.log(results)
             }
         }).catch((e)=>console.log(e));
     }
@@ -46,16 +50,16 @@ export default function Searchbar() {
     useEffect(() => {
 
 
-        // console.log("reload");
+        console.log("reload");
         console.log(searchInput)
         !searchInput ? setSearch(false) : setSearch(true)
-        // console.log(search);
-        // console.log(category);
-        setQuery(`k=${searchInput}&&c=${category}`);
+        console.log(search);
+        console.log(category);
+        let cat= category.toLocaleLowerCase();
+        setQuery(`${searchInput}/${cat}`);
 
-        // console.log(query);
         const url=api_url+query;
-        // console.log(url)
+        console.log(url)
 
         
         get_cards(url);
@@ -70,7 +74,7 @@ export default function Searchbar() {
 
     }
     const Searchpost=()=>{
-        // console.log(page);
+        console.log(page);
         if(page==="search"){
             setReload(true);
             let base=window.location.href.split("k");
@@ -79,17 +83,12 @@ export default function Searchbar() {
             let reload_Page=base+query;
           
             console.log(reload_Page);
-            // console.log(bas[0]);
-            // // router.push(`${reload_Page}`);       
-            //  router.push(`./${query}`);
+            console.log(bas[0]);
             
         }else{
             console.log(page);
 
-        // router.push(`./search/${query}`);
         }
-        // router.push(`../search/${query}`);
-     
 
     }
 
@@ -119,14 +118,19 @@ export default function Searchbar() {
 
 
         </form>
-                     {            search ?             
+           {            search ?             
 
                                         <div id={style.searchResults}>
                                             <ul>
-                                                {results!=0 ? ( <h5>
+                                                {
+                                                    results!=0 ? 
+                                                        ( 
+                                                            <h5>
                                                                 results :{results}
-                                                                </h5>)
-                                                            : (
+                                                            </h5>
+                                                        )
+                                                        :
+                                                         (
                                                                 <h5>
                                                                     no results found
                                                                 </h5>
@@ -135,14 +139,14 @@ export default function Searchbar() {
                                                
                                                     { post.map((result,key)=>(
 
-                                                        <Link href={`./article/${result.slug}`} key={key} passHref>
+                                                        <Link href={`http://localhost:3000/article/${result.slug}`} key={key} >
 
 
-                                                            <li key={index}>
+                                                            <li >
                                                                 <div id={style.imageWrapper}>
                                             
-                                                                <img src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+result.pic} id={style.background_image} alt="" />
-                                                                <img src={Config.IP_ADDRESS+Config.POSTIMAGE_BASEURL+result.pic} id={style.foreground_image} alt="" />
+                                                                <img src={Config.POSTIMAGE_BASEURL+result.pic} id={style.background_image} alt="" />
+                                                                <img src={Config.POSTIMAGE_BASEURL+result.pic} id={style.foreground_image} alt="" />
                                                                 </div>
                                                                 <div id={style.result_details}>
                                                                     <h4>

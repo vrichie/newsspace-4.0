@@ -194,13 +194,16 @@
 
 
 
-
+#mobile{
+    display:none;
+}
 
 @media (max-width:500px){
     #main_wrapper{
         display:none;
     }
     #mobile{
+        display: block;
         width: 100%;
         height: fit-content;
     }
@@ -211,6 +214,8 @@
         display:none;
     }
     #mobile{
+
+        display: block;
         width: 100%;
         height: fit-content;
     }
