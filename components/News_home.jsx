@@ -74,7 +74,7 @@ useEffect(() => {
                         second.length==0 ?(
                             <div id={style.loader_wrapper}>
 
-                            <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                            <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
                
                 
                        </div>
@@ -112,7 +112,7 @@ useEffect(() => {
                         main_post.length==0 ?(
                             <div id={style.loader_wrapper}>
 
-                            <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                            <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
                
                 
                        </div>
@@ -168,7 +168,7 @@ useEffect(() => {
                     twin_post.length==0 ?(
                         <div id={style.loader_wrapper}>
 
-                        <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                        <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
            
             
                    </div>
@@ -221,14 +221,7 @@ useEffect(() => {
                     <ul>
                     {   
                         
-                        mpost.length==0 ?(
-                            <div id={style.loader_wrapper}>
 
-                            <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
-               
-                
-                       </div>
-                        ):
                             mpost.map((post,key)=>(
                                 <Link href={`./article/${post.slug}`} key={key}>
                                 

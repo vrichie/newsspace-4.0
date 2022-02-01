@@ -1,6 +1,6 @@
 import { useState ,useEffect } from "react";
 import Link from "next/link";
-
+import Image from "next/image";
 import style from "../../../styles/Sublanding.module.css";
 
 import { Button } from "semantic-ui-react";
@@ -49,44 +49,60 @@ export default function Main_card() {
     return (
         
         <Link href={`/article/${post.slug}`} >
-            <div id={style.content}>
 
-              <div id={style.main_image_content}>
-              <img id={style.mic_background} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
+{
+        post.id==null?(
+          <div id={style.loader_wrapper}>
 
-                  <img id={style.mic_main} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic}  />
+          <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
+
+
+     </div>
+        ):(
+              <div id={style.content}>
+
+                <div id={style.main_image_content}>
+                <img id={style.mic_background} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
+
+                    <img id={style.mic_main} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic}  />
+
+                </div>
+
+
+                    <div className={style.title}>
+                        <h1>
+                          {post.title}
+                        </h1>
+                    </div>
+
+                    <div id={style.sub_title}>
+                        <p>
+                            {post.summary}
+                        </p>
+                    </div>
+
+                    <div className={style.extra_sub_info}>
+
+                    <p>{post.username}</p>
+                    <p>
+                    {post.date}
+                    </p>
+
+                    <Button
+                    content='Like'
+                    icon='heart'
+                    label={{ as: 'p', basic: true, content: '2,048' }}
+                    labelPosition='right'
+                    />
+                    </div>
 
               </div>
+        )
+}
 
 
-                  <div className={style.title}>
-                      <h1>
-                        {post.title}
-                      </h1>
-                  </div>
 
-                  <div id={style.sub_title}>
-                      <p>
-                          {post.summary}
-                      </p>
-                  </div>
 
-                  <div className={style.extra_sub_info}>
-
-                  <p>{post.username}</p>
-                  <p>
-                  {post.date}
-                  </p>
-
-                  <Button
-                  content='Like'
-                  icon='heart'
-                  label={{ as: 'p', basic: true, content: '2,048' }}
-                  labelPosition='right'
-                  />
-                  </div>
-
-            </div>
       </Link>
 
         

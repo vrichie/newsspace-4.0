@@ -67,7 +67,7 @@ const url=Config.IP_ADDRESS+"category/"+key+"/4";
                 mobilePost.length==0 ?(
                     <div id={style.loader_wrapper}>
 
-                    <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                    <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
        
         
                </div>

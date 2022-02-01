@@ -68,77 +68,88 @@ export default function Read_section() {
             <div id={style.real_content}>
 
             {
-                post.id==null?(
-                    <Image src={"/loader.gif"} alt="loading" width={200} height={200} />
+
+
+            post.id==null?(
+
+            <div id={style.loader_wrapper}>
+
+            <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
+
+
+            </div>  )
+
+            :
+
+
+
+
+
+            <div id={style.post_wrapper}>
+            <h1 id={style.title_h1}>
+                {post.title}
+                </h1>
+
+                <h6>
+                    {post.category}
+                </h6>
+
+
+                <p>
+                    {post.date}
+                </p>
+
+            <div id={style.main_image}>
+
+                <div id={style.mm_place}>
                     
-                ):(
-
-                <div id={style.post_wrapper}>
-                    <h1 id={style.title_h1}>
-                        {post.title}
-                     </h1>
-
-                     <h6>
-                         {post.category}
-                     </h6>
-
-
-                     <p>
-                         {post.date}
-                     </p>
-
-                    <div id={style.main_image}>
-
-                        <div id={style.mm_place}>
-                           
-                              <img id={style.mic_background_mm} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
-                              <img id={style.mic_main_mm} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
-
-                        </div>
-                            
-                            
-                          
-                          
-                        
-                        <div  id={style.writers}>
-
-                            <div id={style.editor_pic}>
-                                <img  src={Config.EDITORSIMAGE_BASEURL+post.profile} alt={post.profile} />
-                                <div id={style.editor_name}>
-                                        {post.username}
-                                </div>
-                            </div>
-
-                            <div id={style.image_rights}>
-                                    
-                                    <p>
-                                        <i>
-                                            image courtesy of google
-                                        </i>
-                                    </p>
-                            </div>
-                       
-                        </div>
-
-
-
-                    </div>
-                    <div id={style.content}>
-
-                        <p>
-
-                            {post.body} 
-                        </p>
-
-
-                    </div>
-                    
-
-
+                        <img id={style.mic_background_mm} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
+                        <img id={style.mic_main_mm} src={Config.POSTIMAGE_BASEURL+post.pic} alt={post.pic} />
 
                 </div>
+                    
+                    
+                    
+                    
+                
+                <div  id={style.writers}>
 
-                )
+                    <div id={style.editor_pic}>
+                        <img  src={Config.EDITORSIMAGE_BASEURL+post.profile} alt={post.profile} />
+                        <div id={style.editor_name}>
+                                {post.username}
+                        </div>
+                    </div>
+
+                    <div id={style.image_rights}>
+                            
+                            <p>
+                                <i>
+                                    image courtesy of google
+                                </i>
+                            </p>
+                    </div>
+                
+                </div>
+
+
+
+            </div>
+            <div id={style.content}>
+
+                <p>
+
+                    {post.body} 
+                </p>
+
+
+            </div>
+            
+
+
+
+            </div>
+   
             }
 
 

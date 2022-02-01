@@ -16,10 +16,9 @@ export default function Slide() {
     const [mobilePost_g,setMobilePost_g]=useState([]);
     const [mobilePost_n,setMobilePost_n]=useState([]);
 
-    const [mobilePost_w_loader,setMobilePost_w_loader]=useState(false);
-    const [mobilePost_e_loader,setMobilePost_e_loader]=useState(false);
-    const [mobilePost_g_loader,setMobilePost_g_loader]=useState(false);
-    const [mobilePost_n_loader,setMobilePost_n_loader]=useState(false);
+    const [post_w,setPost_w]=useState([]);
+    const [post_e,setPost_e]=useState([]);
+    const [post_g,setPost_g]=useState([]);
 
     const get_data=()=>{
             
@@ -27,7 +26,9 @@ export default function Slide() {
     const Nurl=Config.IP_ADDRESS+"category/news/1";
     const Gurl=Config.IP_ADDRESS+"category/gossip/1";
     const Eurl=Config.IP_ADDRESS+"category/entertainment/1";
-    const api_url=Config.IP_ADDRESS+"category/world/1";
+    const api_url_e=Config.IP_ADDRESS+"category/entertainment/1";
+    const api_url_g=Config.IP_ADDRESS+"category/gossip/1";
+    const api_url_w=Config.IP_ADDRESS+"category/world/1";
     // console.log(api_url);
 
         //world
@@ -59,10 +60,29 @@ export default function Slide() {
             setMobilePost_e_loader(true);
         }).catch(e=>console.log(e))
 
-        fetch(api_url).then(res=>res.json()).then(data=>{
-            console.log(data[0])
-            setPost(data[0]);
+        fetch(api_url_e).then(res=>res.json()).then(data=>{
+            // console.log(data[0])
+            setPost_e(data[0]);
         }).catch(e=>console.log(e))
+
+
+        fetch(api_url_g).then(res=>res.json()).then(data=>{
+            // console.log(data[0])
+            setPost_g(data[0]);
+        }).catch(e=>console.log(e))
+
+
+        fetch(api_url_w).then(res=>res.json()).then(data=>{
+            // console.log(data[0])
+            setPost_w(data[0]);
+        }).catch(e=>console.log(e))
+
+
+
+
+
+
+
     }
 
     useEffect(()=>{
@@ -70,24 +90,7 @@ export default function Slide() {
     },[]);
 
  
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      };
-      const handleMouseEnter=(e,card)=>{
-        e.target.style.background=card.background;
-        e.target.style.color="white"; 
-    }    
-    const handleMouseLeave=(e,card)=>{
-        e.target.style.borderColor=card.background;
-        e.target.style.color=card.background;
-        e.target.style.background="white";
-        
 
-    }
 
 
 
@@ -95,25 +98,34 @@ export default function Slide() {
 
         <section id={style.main_slide_wrapper} className='bg-light'>
      <div  id={style.slide}>
-          
-          <Link href={`./article/${post.slug}`}>
+
+
+         {
+             post_e.id==null?(
+                <div id={style.loader_wrapper}>
+
+                <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
+   
+    
+           </div>
+             ):(
+
+
+          <Link href={`./article/${post_e.slug}`}>
           
               <div id={style.slide_item}>
-                  <img id={style.real_image} src={Config.POSTIMAGE_BASEURL+post.pic} alt="" />
-                  <img id={style.background_image} src={Config.POSTIMAGE_BASEURL+post.pic} alt="" />
+                  <img id={style.real_image} src={Config.POSTIMAGE_BASEURL+post_e.pic} alt="" />
+                  <img id={style.background_image} src={Config.POSTIMAGE_BASEURL+post_e.pic} alt="" />
                   <div className={style.detail_slide}>
-                      <h2>{post.title}</h2>
-                      <h5>{post.summary}</h5>
+                      <h2>{post_e.title}</h2>
+                      <h5>{post_e.summary}</h5>
                       <span>
-                           <p>by:{post.username}</p> <p>{post.date}</p> 
+                           <p>by:{post_e.username}</p> <p>{post_e.date}</p> 
                       </span>
                   </div>
-                  <Link href={`${post.tag}`}>
-                  <button
-                    onLoadStart={(e)=>{handleMouseLeave(e,post)}} 
-                    onMouseEnter={(e)=>{handleMouseEnter(e,post)}} 
-                    onMouseLeave={(e)=>{handleMouseLeave(e,post)}}>
-                      {post.category} 
+                  <Link href={`${post_e.tag}`}>
+                  <button>
+                      {post_e.category} 
                   </button>
                   </Link>
                 
@@ -121,6 +133,11 @@ export default function Slide() {
           
           
           </Link>
+
+             )
+         }
+          
+
 
       </div>
 
@@ -130,51 +147,83 @@ export default function Slide() {
 
 
 
+ 
+
+
+            {
+             post_g.id==null?(
+                <div id={style.loader_wrapper}>
+
+                <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
+   
+    
+                 </div>
+             ):(
+
+
+                <Link href={`./article/${post_e.slug}`}>
+                            <div id={style.covid}>
+                        <img src={Config.POSTIMAGE_BASEURL+post_g.pic} id={style.covid_image} alt="" />
+                        <div id={style.covid_details}>
+                        <Link href={`${post_g.tag}`}>
+                        <button>
+                            {post_g.category} 
+                        </button>
+                        </Link>
+                            <h3>
+                                {post_g.title}
+                            </h3>
+
+                            <h6>
+                                {post_g.date}
+                            </h6>
+
+                        </div>
+                </div>
+
+           </Link>
+
+             )
+
+}
+ 
+{
+             post_w.id==null?(
+                <div id={style.loader_wrapper}>
+
+                <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
+   
+    
+                 </div>
+             ):(
+
+                <Link href={`./article/${post_e.slug}`}>
             <div id={style.covid}>
-                <img src={Config.POSTIMAGE_BASEURL+post.pic} id={style.covid_image} alt="" />
+
+                
+                
+                <img src={Config.POSTIMAGE_BASEURL+post_w.pic} id={style.covid_image} alt="" />
                 <div id={style.covid_details}>
-                <Link href={`${post.tag}`}>
-                  <button
-                    onLoadStart={(e)=>{handleMouseLeave(e,post)}} 
-                    onMouseEnter={(e)=>{handleMouseEnter(e,post)}} 
-                    onMouseLeave={(e)=>{handleMouseLeave(e,post)}}>
-                      {post.category} 
+                <Link href={`${post_w.tag}`}>
+                  <button>
+                      {post_w.category} 
                   </button>
                   </Link>
                     <h3>
-                        {post.title}
+                        {post_w.title}
                     </h3>
 
                     <h6>
-                        {post.date}
+                        {post_w.date}
                     </h6>
 
                 </div>
             </div>
 
+            </Link>
 
-
-            <div id={style.covid}>
-                <img src={Config.POSTIMAGE_BASEURL+post.pic} id={style.covid_image} alt="" />
-                <div id={style.covid_details}>
-                <Link href={`${post.tag}`}>
-                  <button
-                    onLoadStart={(e)=>{handleMouseLeave(e,post)}} 
-                    onMouseEnter={(e)=>{handleMouseEnter(e,post)}} 
-                    onMouseLeave={(e)=>{handleMouseLeave(e,post)}}>
-                      {post.category} 
-                  </button>
-                  </Link>
-                    <h3>
-                        {post.title}
-                    </h3>
-
-                    <h6>
-                        {post.date}
-                    </h6>
-
-                </div>
-            </div>
+             )
+             }
 
 
       </div>
@@ -187,7 +236,7 @@ export default function Slide() {
                 mobilePost_e==false?(
                     <div id={style.loader_wrapper}>
 
-                    <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                    <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
        
         
                </div>
@@ -245,7 +294,7 @@ export default function Slide() {
                 mobilePost_g==false?(
                     <div id={style.loader_wrapper}>
 
-                    <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                    <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
        
         
                </div>
@@ -306,7 +355,7 @@ export default function Slide() {
                 mobilePost_w==false?(
                     <div id={style.loader_wrapper}>
 
-                    <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                    <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
        
         
                </div>
@@ -363,7 +412,7 @@ export default function Slide() {
                 mobilePost_n==false?(
                     <div id={style.loader_wrapper}>
 
-                    <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                    <Image id={style.loader} src={"/loading.gif"} alt="loading" width={50} height={50} />
        
         
                </div>

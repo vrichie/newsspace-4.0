@@ -58,7 +58,7 @@ const api_url=Config.IP_ADDRESS+"category/"+(base.toLocaleLowerCase())+"/6";
                 {   
                         
                         second.length==0 ?(
-                        <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                        <Image id={style.loader} src={"/loading.gif"} alt="loading" width={100} height={100} />
                     
                         ):
                         second.map((posts,key)=>(
@@ -98,7 +98,7 @@ const api_url=Config.IP_ADDRESS+"category/"+(base.toLocaleLowerCase())+"/6";
             {   
                         
                         first.length==0 ?(
-                        <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
+                        <Image id={style.loader} src={"/loading.gif"} alt="loading" width={100} height={100} />
                     
                         ):
                     first.map((posts,key)=>(
@@ -164,15 +164,7 @@ const api_url=Config.IP_ADDRESS+"category/"+(base.toLocaleLowerCase())+"/6";
 
                     {   
                         
-                        post.length==0 ?( 
-                            <div id={style.loader_wrapper}>
 
-                                 <Image id={style.loader} src={"/loader.gif"} alt="loading" width={100} height={100} />
-                    
-                     
-                            </div>
-
-                           ): 
                             post.map((post,key)=>( 
                                  <Link href={`./article/${post.slug}`} key={key}>
                                  
