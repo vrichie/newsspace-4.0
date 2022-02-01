@@ -139,7 +139,7 @@ export default function Searchbar() {
                                                
                                                     { post.map((result,key)=>(
 
-                                                        <Link href={`http://localhost:3000/article/${result.slug}`} key={key} >
+                                                        <Link href={`https://newsspace-4-0.vercel.app/article/${result.slug}`} key={key} >
 
 
                                                             <li >
