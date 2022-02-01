@@ -3,9 +3,9 @@
 
 
 {
-    "IP_ADDRESS":"https://richking.xyz/api/",
-    "POSTIMAGE_BASEURL":"https://richking.xyz/data/post_images/",
-    "EDITORSIMAGE_BASEURL":"https://richking.xyz/data/editors_images/"
+    "IP_ADDRESS":"https://newspace-api.herokuapp.com/api/",
+    "POSTIMAGE_BASEURL":"https://newspace-api.herokuapp.com/data/post_images/",
+    "EDITORSIMAGE_BASEURL":"https://newspace-api.herokuapp.com/data/editors_images/"
 
 
 
