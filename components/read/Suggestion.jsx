@@ -49,7 +49,7 @@ export default function Suggestion({category}) {
                         suggestion.map((post,key)=>(
                            
 
-                            <li onClick={()=>{ refreshPage(post.slug)}} >
+                            <li onClick={()=>{ refreshPage(post.slug)}} key={key}>
                             <p>
                             {post.title}    
                             </p>
