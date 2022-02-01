@@ -18,6 +18,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>News-space</title>
+        <meta name="google-site-verification" content="daQAobwpASYD9r2hAeiPohiCG9y8GX54UrNBAuOlgzc" />
         <meta name="description" content="Everything news and in between. Get Entertainment, Gossip , News and World information all here." />
         <link rel="icon" href="/newsspace_logo.png" />
       </Head>
