@@ -12,7 +12,7 @@ import style from '../styles/World_home.module.css'
 import Mobile from '../styles/Mobile_home.module.css'
 const api_url=Config.IP_ADDRESS+"category/world/7";
 const api_mobile_url=Config.IP_ADDRESS+"category/world/6";
-const type="Entertainment";
+const type="World";
 
 export default function World_home() {
     const [post, setPost] = useState([]);
