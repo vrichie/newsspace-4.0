@@ -23,8 +23,8 @@ export default function Read_section() {
         // const furl = Config.IP_ADDRESS+"include/posts/?slug="+wiff;
         const furl=Config.IP_ADDRESS+"article/"+wiff;
          fetch(furl).then(res=>res.json()).then(data=>{
-                console.log(data[0].id);
-                 setPost(data[0]);
+                console.log(data);
+                 setPost(data);
          });
           
   

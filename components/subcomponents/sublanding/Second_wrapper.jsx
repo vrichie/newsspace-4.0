@@ -8,19 +8,25 @@ import Config from '../../../config/config.json'
 
 
 
+const api_url = Config.IP_ADDRESS+"category/";
 export default function Second_wrapper() {
     const [post, setPost] = useState([]);
 
 
 
     const get_data=()=>{
+
         let url=window.location.href.split("/");
         let len=url.length;
-        let category=url[len-1];
-    const api_url=Config.IP_ADDRESS+"category/"+category+"/3";
-        fetch(api_url).then(res=>res.json()).then(data=>{
-            // console.log(data);
+        let base=url[len-1];
+    
+        const baseUrl=api_url+(base.toLocaleLowerCase())+"/3"; 
+        console.log(baseUrl);
+ 
+        fetch(baseUrl).then(res=>res.json()).then(data=>{
+            console.log(data);
             setPost(data);
+            console.log(post);
         }).catch(e=>console.log(e));
 
     }
