@@ -22,6 +22,7 @@ export default function Entertainment_home() {
         fetch(base_url).then(res=>res.json()).then(data=>{
             console.log(data);
             setPost(data);
+            console.log(post); 
 
         }).catch((e)=>console.log(e));
         fetch(base_mobile_url).then(res=>res.json()).then(data=>{
